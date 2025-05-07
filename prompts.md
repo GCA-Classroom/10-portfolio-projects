@@ -1,6 +1,6 @@
 ## Prompt 1
 
-The site should be entirely responsive and adapt well to narrow screen sizes.
+The site should be responsive and adapt well to narrow screen sizes.
 
 ## Prompt 2
 
