@@ -1,5 +1,6 @@
 /* General styles */
-html, body {
+html,
+body {
   height: 100%; /* Full height for html and body */
 }
 
@@ -12,7 +13,7 @@ body {
 
 /* Header styles */
 header {
-  background-color: #1F3A5F;
+  background-color: #1f3a5f;
   color: white; /* White text */
   text-align: center;
   padding: 18px 0; /* Padding for spacing */
@@ -20,30 +21,30 @@ header {
 }
 
 h1 {
-  color:rgb(228, 233, 238);
-  font-size: 66px; /* Large main heading */
+  color: rgb(228, 233, 238);
+  font-size: clamp(40px, 8vw, 66px); /* Responsive font size */
   margin: 0; /* Remove extra space above and increase space below */
 }
 
 h2 {
-  font-size: 32px; /* Heading size */
+  font-size: clamp(24px, 5vw, 32px); /* Responsive font size */
   margin: 0;
 }
 
 /* Hero section styles */
 .hero-section {
-  background: url('img/hero-bg.jpg') no-repeat center center; /* Background image */
+  background: url("img/hero-bg.jpg") no-repeat center center; /* Background image */
   background-size: cover; /* Cover the entire section */
   background-blend-mode: overlay; /* Blend mode for light background effect */
-  background-color:rgb(46, 54, 69);
-  color: #D1D5DB;
+  background-color: rgb(46, 54, 69);
+  color: #d1d5db;
   text-align: center;
-  padding: 50px 10px; /* Increased height of the banner */
+  padding: 5vh 10px; /* Responsive padding */
 }
 
 .hero-section p {
-  color:rgb(173, 185, 215);
-  font-size: 22px;
+  color: rgb(173, 185, 215);
+  font-size: clamp(18px, 4vw, 22px); /* Responsive font size */
   font-weight: bold;
   margin-bottom: 0;
 }
@@ -62,23 +63,25 @@ h2 {
   justify-content: center; /* Center the content */
   align-items: center; /* Center items vertically */
   padding: 60px 20px; /* Padding for spacing */
+  gap: 30px; /* Space between flex items */
 }
 
 .mission-section h2 {
   margin-top: 20px;
-  color: #2C4875;
+  color: #2c4875;
 }
 
 .mission-section img {
-  width: 370px; /* Fixed width for the image */
-  max-width: 50%; /* Ensure image is responsive */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 55px; /* Space between image and text */
+  width: 100%; /* Full width on mobile */
+  max-width: 370px; /* Maximum width on larger screens */
+  margin-right: 0; /* Remove fixed margin */
   border-radius: 15px; /* Rounded corners for the image */
 }
 
 .mission-section div {
-  max-width: 520px; /* Limit the width of the text container */
+  width: 100%; /* Full width on mobile */
+  max-width: 520px;
+  padding: 0 20px; /* Add padding for spacing */
 }
 
 .mission-section p {
@@ -88,8 +91,8 @@ h2 {
 
 /* Skills section styles */
 .skills-section {
-  background-color: #1F3A5F;
-  color:rgb(231, 233, 235);
+  background-color: #1f3a5f;
+  color: rgb(231, 233, 235);
   text-align: center; /* Center the text */
   padding: 60px 20px; /* Padding for spacing */
 }
@@ -101,22 +104,98 @@ h2 {
 
 .skills-section ul {
   list-style-type: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .skills-section li {
   font-size: 1.2em; /* List item text size */
-  margin-bottom: 10px; /* Space below each list item */
   padding: 12px 20px;
-  background-color:rgb(82, 103, 131);
+  background-color: rgb(82, 103, 131);
   border-radius: 8px; /* Rounded corners */
-  display: inline-block; /* Display list items inline */
-  margin: 5px; /* Space between list items */
+  /* Remove conflicting display and margin properties */
+  flex: 0 1 auto; /* Don't grow, can shrink, auto base size */
 }
 
 .skills-section .fas {
   font-size: 16px;
   margin-right: 5px;
+}
+
+/* Projects section styles */
+.projects-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #f5f7fa; /* Light gray background */
+  border-top: 1px solid #e5e7eb; /* Subtle top border */
+  border-bottom: 1px solid #e5e7eb; /* Subtle bottom border */
+}
+
+.projects-section h2 {
+  color: #2C4875;
+  margin-top: 0;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top center; /* Ensure top of image is always visible */
+}
+
+.project-card h3 {
+  color: #1f3a5f;
+  margin: 15px 0;
+  font-size: 1.3em;
+}
+
+.project-card p {
+  color: #666;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.project-link {
+  display: inline-block;
+  color: #1f3a5f;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.project-link:hover {
+  color: #2c4875;
 }
 
 footer {
@@ -126,4 +205,23 @@ footer {
 
 footer p {
   margin: 0; /* Remove default margin */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 0;
+  }
+
+  .mission-section {
+    padding: 40px 10px;
+  }
+
+  .skills-section {
+    padding: 40px 10px;
+  }
+
+  .project-card {
+    flex: 1 1 100%;
+  }
 }
